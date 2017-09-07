@@ -1,0 +1,35 @@
+﻿@model MyBudget.ViewModel.PaymentSourceVm
+
+@{
+    ViewBag.Title = "AddNewPaymentSource";
+    Layout = "~/Views/Layouts/_Header.cshtml";
+}
+
+<div class="page-header">
+    <h1>Payment Sources Management</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Payment Sources</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" id="addNewPaymentSourceForm" method="post" action="@Url.Action("AddNewPaymentSourcePost", "Home")">
+            <div class="form-group ">
+                <label for="paymentSourceName" class="col-sm-2 control-label">Name* (required)</label>
+                <div class=" col-md-3">
+                    <input type="text" class="form-control" id="paymentSourceName" name="paymentSourceName" value=""  required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="SourceDescription" class="col-sm-2 control-label">Description* (required)</label>
+                <div class=" col-md-3">
+                    <input type="text" class="form-control" id="SourceDescription" name="SourceDescription" value="" required>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit" id="btnAddNewPaymentSource">Add new payment Source</button>
+            </div>
+        </form>
+    </div>
+</div>

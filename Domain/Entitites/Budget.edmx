@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BudgetModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BudgetModelStoreContainer">
+          <EntitySet Name="activity" EntityType="BudgetModel.Store.activity" store:Type="Tables" />
+          <EntitySet Name="expenseDestination" EntityType="BudgetModel.Store.expenseDestination" store:Type="Tables" />
+          <EntitySet Name="paymentSource" EntityType="BudgetModel.Store.paymentSource" store:Type="Tables" />
+          <EntitySet Name="recurrence" EntityType="BudgetModel.Store.recurrence" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="amount" Type="real" Nullable="false" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="recur" Type="bit" Nullable="false" />
+          <Property Name="transactionSourceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expenseDestination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name " Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paymentSource">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="recurrence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="frequency" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="transactionId" Type="int" Nullable="false" />
+          <Property Name="updatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BudgetModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MyBudget" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="expenseDestinations" EntityType="BudgetModel.expenseDestination" />
+          <EntitySet Name="paymentSources" EntityType="BudgetModel.paymentSource" />
+          <EntitySet Name="recurrences" EntityType="BudgetModel.recurrence" />
+          <EntitySet Name="activities" EntityType="BudgetModel.activity" />
+        </EntityContainer>
+        <EntityType Name="expenseDestination">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name_" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="updatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="paymentSource">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="updatedDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="recurrence">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="frequency" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="transactionId" Nullable="false" />
+          <Property Type="DateTime" Name="updatedDate" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="activity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Single" Name="amount" Nullable="false" />
+          <Property Type="DateTime" Name="time" Nullable="false" Precision="3" />
+          <Property Type="String" Name="type" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="recur" Nullable="false" />
+          <Property Type="Int32" Name="transactionSourceId" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BudgetModelStoreContainer" CdmEntityContainer="MyBudget">
+          <EntitySetMapping Name="expenseDestinations">
+            <EntityTypeMapping TypeName="BudgetModel.expenseDestination">
+              <MappingFragment StoreEntitySet="expenseDestination">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_" ColumnName="name " />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paymentSources">
+            <EntityTypeMapping TypeName="BudgetModel.paymentSource">
+              <MappingFragment StoreEntitySet="paymentSource">
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recurrences">
+            <EntityTypeMapping TypeName="BudgetModel.recurrence">
+              <MappingFragment StoreEntitySet="recurrence">
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+                <ScalarProperty Name="frequency" ColumnName="frequency" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="activities">
+            <EntityTypeMapping TypeName="BudgetModel.activity">
+              <MappingFragment StoreEntitySet="activity">
+                <ScalarProperty Name="transactionSourceId" ColumnName="transactionSourceId" />
+                <ScalarProperty Name="recur" ColumnName="recur" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

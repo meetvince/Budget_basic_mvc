@@ -1,0 +1,44 @@
+﻿@model MyBudget.ViewModel.DebitTransactionsVm
+
+@{
+    ViewBag.Title = "AddNewDebitTransaction";
+    Layout = "~/Views/Layouts/_Header.cshtml";
+}
+
+<h2>Debit Transaction Management</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Debit Transactions</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" id="addNewDebitTransactionForm" method="post" action="@Url.Action("AddNewDebitTransactionPost", "Transaction")">
+            <div class="form-group ">
+                <label for="paymentDestination" class="col-sm-2 control-label">Payment Destination* (required)</label>
+                <div class="dropdown col-md-3" >
+                    <select class="form-control" id="paymentDestination" name="paymentDestination">
+                        @foreach (var item in @Model.PaymentDestinations)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="amount" class="col-sm-2 control-label">Amount* (required)</label>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" id="amount" name="amount" value="" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="recur" class="col-sm-2 control-label">Recur*</label>
+                <div class=" col-sm-1">
+                    <input type="checkbox" class="input-group" id="recur" name="recur" value="true" checked="@Model.Recur" disabled="disabled">
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit" id="btnAddNewpaymentDestination">Add new Debit Transaction</button>
+            </div>
+        </form>
+    </div>
+</div>

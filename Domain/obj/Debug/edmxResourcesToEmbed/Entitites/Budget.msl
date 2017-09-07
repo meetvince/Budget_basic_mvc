@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BudgetModelStoreContainer" CdmEntityContainer="MyBudget">
+    <EntitySetMapping Name="expenseDestinations">
+      <EntityTypeMapping TypeName="BudgetModel.expenseDestination">
+        <MappingFragment StoreEntitySet="expenseDestination">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name_" ColumnName="name " />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentSources">
+      <EntityTypeMapping TypeName="BudgetModel.paymentSource">
+        <MappingFragment StoreEntitySet="paymentSource">
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recurrences">
+      <EntityTypeMapping TypeName="BudgetModel.recurrence">
+        <MappingFragment StoreEntitySet="recurrence">
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+          <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+          <ScalarProperty Name="frequency" ColumnName="frequency" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="activities">
+      <EntityTypeMapping TypeName="BudgetModel.activity">
+        <MappingFragment StoreEntitySet="activity">
+          <ScalarProperty Name="transactionSourceId" ColumnName="transactionSourceId" />
+          <ScalarProperty Name="recur" ColumnName="recur" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

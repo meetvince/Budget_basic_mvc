@@ -1,0 +1,17 @@
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\obj\Debug\ServiceModel.csprojResolveAssemblyReference.cache
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\ServiceModel.dll.config
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\ServiceModel.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\ServiceModel.pdb
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\DomainModel.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\EntityFramework.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\log4net.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\DomainModel.pdb
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\EntityFramework.xml
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\bin\Debug\log4net.xml
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\obj\Debug\ServiceModel.dll
+C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\ServiceModel\obj\Debug\ServiceModel.pdb

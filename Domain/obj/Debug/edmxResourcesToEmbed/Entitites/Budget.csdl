@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BudgetModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MyBudget" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="expenseDestinations" EntityType="BudgetModel.expenseDestination" />
+    <EntitySet Name="paymentSources" EntityType="BudgetModel.paymentSource" />
+    <EntitySet Name="recurrences" EntityType="BudgetModel.recurrence" />
+    <EntitySet Name="activities" EntityType="BudgetModel.activity" />
+  </EntityContainer>
+  <EntityType Name="expenseDestination">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name_" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="updatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="paymentSource">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="updatedDate" Precision="3" />
+  </EntityType>
+  <EntityType Name="recurrence">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="frequency" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="transactionId" Nullable="false" />
+    <Property Type="DateTime" Name="updatedDate" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="activity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Single" Name="amount" Nullable="false" />
+    <Property Type="DateTime" Name="time" Nullable="false" Precision="3" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="recur" Nullable="false" />
+    <Property Type="Int32" Name="transactionSourceId" Nullable="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,39 @@
+﻿@model MyBudget.ViewModel.PaymentDestinationVm
+
+@{
+    ViewBag.Title = "AddNewPaymentDestination";
+    Layout = "~/Views/Layouts/_Header.cshtml";
+}
+
+<div class="page-header">
+    <h1>Payment Destination Management</h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Payment Destinations</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" id="addNewPaymentDestinationForm" method="get" action="@Url.Action("AddNewPaymentDestination", "Home")">
+            <div class="form-group ">
+                <label for="paymentDestinationName" class="col-sm-2 control-label">Name* (required)</label>
+                <div class=" col-md-3">
+                    <input type="text" class="form-control" id="paymentDestinationName" name="paymentDestinationName" value="@Model.Name" disabled="disabled" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="destinationDescription" class="col-sm-2 control-label">Description* (required)</label>
+                <div class=" col-md-3">
+                    <input type="text" class="form-control" id="destinationDescription" name="destinationDescription" value="@Model.Description" disabled="disabled" required>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit" id="btnAddNewPaymentDestination">Add new payment destination</button>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer panel-success">
+        <h3> <span class="label-success">@Model.Message </span></h3>
+    </div>
+</div>
+

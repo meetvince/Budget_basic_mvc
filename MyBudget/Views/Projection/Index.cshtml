@@ -1,0 +1,14 @@
+﻿@model MyBudget.ViewModel.BalancesVm
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/_Header.cshtml";
+}
+
+<div class="page-header">
+    <h1>Projections Dashboard</h1>
+</div>
+
+@*Payment Destinations*@
+@Html.Partial("~/Views/Shared/_Balances.cshtml", Model);
+

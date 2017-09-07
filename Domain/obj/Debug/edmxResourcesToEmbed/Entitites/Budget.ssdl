@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BudgetModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BudgetModelStoreContainer">
+    <EntitySet Name="activity" EntityType="BudgetModel.Store.activity" store:Type="Tables" />
+    <EntitySet Name="expenseDestination" EntityType="BudgetModel.Store.expenseDestination" store:Type="Tables" />
+    <EntitySet Name="paymentSource" EntityType="BudgetModel.Store.paymentSource" store:Type="Tables" />
+    <EntitySet Name="recurrence" EntityType="BudgetModel.Store.recurrence" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="activity">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="amount" Type="real" Nullable="false" />
+    <Property Name="time" Type="datetime" Nullable="false" />
+    <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="recur" Type="bit" Nullable="false" />
+    <Property Name="transactionSourceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="expenseDestination">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name " Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+    <Property Name="updatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="paymentSource">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+    <Property Name="updatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="recurrence">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="frequency" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="transactionId" Type="int" Nullable="false" />
+    <Property Name="updatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema>

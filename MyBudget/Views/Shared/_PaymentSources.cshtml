@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MyBudget.ViewModel.PaymentSourceVm>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Payment Sources</h3>
+    </div>
+    <div class="panel-body">
+        <table id="paymentSources" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+            <tbody>
+                @foreach (var item in @Model)
+                {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.UpdatedDate</td>
+                </tr>
+                }
+            </tbody>
+    </table>
+    </div>
+    <div class="panel-footer">
+        <button class="btn btn-success" type="submit" id="btnAddNewPaymentSource" onclick="location.href='@Url.Action("AddNewPaymentSource","Home")'">Add new payment Source</button>
+    </div>
+</div>
+

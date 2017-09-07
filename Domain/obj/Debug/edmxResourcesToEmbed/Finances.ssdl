@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinancesModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="FinancesModelStoreContainer">
+    <EntitySet Name="ExpenseDestination" EntityType="FinancesModel.Store.ExpenseDestination" store:Type="Tables" />
+    <EntitySet Name="ExpenseTransaction" EntityType="FinancesModel.Store.ExpenseTransaction" store:Type="Tables" />
+    <EntitySet Name="IncomeSource" EntityType="FinancesModel.Store.IncomeSource" store:Type="Tables" />
+    <EntitySet Name="IncomeTransaction" EntityType="FinancesModel.Store.IncomeTransaction" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="ExpenseDestination">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Id" Type="smallint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ExpenseTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PayTo" Type="smallint" Nullable="false" />
+    <Property Name="Month" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Year" Type="smallint" Nullable="false" />
+    <Property Name="Amount" Type="numeric" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="IncomeSource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="IncomeTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="IncomeSourceId" Type="smallint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Amount" Type="numeric" Nullable="false" />
+    <Property Name="Monthy" Type="smallint" />
+    <Property Name="Year" Type="smallint" />
+    <Property Name="TransactionDate" Type="datetime" />
+  </EntityType>
+</Schema>
