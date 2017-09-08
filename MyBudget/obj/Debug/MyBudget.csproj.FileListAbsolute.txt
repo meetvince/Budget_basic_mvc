@@ -67,4 +67,3 @@ C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\MyBudget\bin\Sys
 C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\MyBudget\bin\Domain.pdb
 C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\MyBudget\obj\Debug\MyBudget.dll
 C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\MyBudget\obj\Debug\MyBudget.pdb
-C:\Users\VMurthy\Documents\Visual Studio 2012\Projects\MyBudget\MyBudget\bin\App_Data\Budget.sdf

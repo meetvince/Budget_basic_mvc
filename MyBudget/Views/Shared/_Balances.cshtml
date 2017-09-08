@@ -1,123 +1,14 @@
 ﻿@model MyBudget.ViewModel.BalancesVm
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Current Period Balances</h3>
-                </div>
-                <div class="panel-body">
-                    @*Current Period total balance*@
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Balance</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3><span class="label label-primary">@Model.TotalBalanceThisPeriod.ToString("c2")</span></h3>
-                        </div>
-                    </div>
-                    @*total Credit balance*@
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Credits</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3><span class="label label-success">@Model.TotalCreditThisPeriod.ToString("c2")</span></h3>
-                        </div>
-                    </div>
-                    @*total debit balance*@
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Spending</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3><span class="label label-warning">@Model.TotalDebitThisPeriod.ToString("c2")</span></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Till Date Balances</h3>
-                </div>
-                <div class="panel-body">
-                    @*Current Period total balance*@
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Balance</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3><span class="label label-primary">@Model.TotalBalance.ToString("c2")</span></h3>
-                        </div>
-                    </div>
-                    @*total Credit balance*@
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Credits</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3><span class="label label-success">@Model.TotalCredit.ToString("c2")</span></h3>
-                        </div>
-                    </div>
-                    @*total debit balance*@
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h3>Spending</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3><span class="label label-warning">@Model.TotalDebit.ToString("c2")</span></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div class="row">
+    <div class="col-md-4">
+        @Html.Partial("~/Views/Projection/CurrentPeriodBalance.cshtml", Model);
+    </div>
+    @*<div class="col-md-1"></div>*@
+    <div class="col-md-6">
+        @Html.Partial("~/Views/Projection/TillDateBalance.cshtml", Model);
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        @foreach (var item in @Model.PeriodBalances)
-        {
-   
-            <div class="col-md-3 month-tile">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">@item.Name</h3>
-                    </div>
-                    <div class="panel-body">
-                        @*Current Period total balance*@
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4>Balance</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <h4><span class="label label-primary">@item.Balance.ToString("c2")</span></h4>
-                            </div>
-                        </div>
-                        @*total Credit balance*@
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4>Credits</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <h4><span class="label label-success">@item.Credit.ToString("c2")</span></h4>
-                            </div>
-                        </div>
-                        @*total debit balance*@
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4>Spending</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <h4><span class="label label-warning">@item.Debit.ToString("c2")</span></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-</div>
+
+@Html.Partial("~/Views/Projection/PeriodBalances.cshtml", Model.PeriodBalances);

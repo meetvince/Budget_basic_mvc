@@ -60,7 +60,27 @@ textarea {
     display: none;
 }
 
-.month-tile {
-    /*border: 1px solid #f4a460;*/
-    /*background-color: blanchedalmond;*/
+.navbar {
+    background-color: #659ab2;
 }
+
+#pagetitle {
+    background-color: #659ab2;
+    border: 1px solid #668cb2;
+    padding: 0px;
+    width: 100%;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    border-radius: 0;
+    border: none;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.period-balance-tile .label-default {
+    color: #232323;
+    background-color: #ffffff;
+}
+
