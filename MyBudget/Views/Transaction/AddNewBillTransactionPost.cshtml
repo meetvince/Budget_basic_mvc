@@ -1,0 +1,37 @@
+﻿@model MyBudget.ViewModel.BillTransactionVm
+
+@{
+    ViewBag.Title = "AddNewBillPaymentPost";
+    Layout = "~/Views/Layouts/_Header.cshtml";
+}
+
+<h2>Bill Transaction Management</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Bill Transactions</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" id="addNewBillTransactionForm" method="GET" action="@Url.Action("AddNewBillTransaction", "Transaction")">
+            <div class="form-group ">
+                <label for="paymentSource" class="col-sm-2 control-label">Payment Source* (required)</label>
+                <div class="dropdown col-md-3" >
+                    <input type="text" id="paymentSource" name="paymentSource" value="@Model.ExpenseDestinationName" disabled="disabled"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="amount" class="col-sm-2 control-label">Amount* (required)</label>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" id="amount" name="amount" value="@Model.Amount" disabled="disabled">
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit" id="btnAddNewPaymentSource">Add new Bill Transaction</button>
+            </div>
+        </form>
+    </div>
+    <div class="panel panel-footer panel-success">
+        <h3 class="panel-title">@Model.Message</h3>
+    </div>
+</div>
+

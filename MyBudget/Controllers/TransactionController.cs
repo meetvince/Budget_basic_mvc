@@ -7,10 +7,12 @@ using DomainModel;
 using DomainModel.CommonModel;
 using MyBudget.ViewModel;
 using Service;
+using Service.Bills;
 using Service.Expenses;
 using Service.Income;
 using Service.Transactions;
 using ServiceModel;
+using ServiceModel.Bills;
 using ServiceModel.Expenses;
 using ServiceModel.Income;
 using ServiceModel.Transactions;
@@ -23,6 +25,7 @@ namespace MyBudget.Controllers
         private readonly IExpensesService _expensesService;
         private readonly ITransactionService _creditTransactionService;
         private readonly ITransactionService _debitTransactionService;
+        private readonly IBillService _billService;
 
         public TransactionController()
         {
@@ -30,17 +33,20 @@ namespace MyBudget.Controllers
             _creditTransactionService = new CreditTransactionService();
             _debitTransactionService = new DebitTransactionService();
             _expensesService= new ExpensesService();
+            _billService=new BillService();
         }
 
         public ActionResult Index()
         {
             Mapper.CreateMap<CreditTransaction, CreditTransactionsVm>();
             Mapper.CreateMap<DebitTransaction, DebitTransactionsVm>();
+            Mapper.CreateMap<BillPayment, BillTransactionVm>();
 
             var transactionsVm = new TransactionsVm
             {
                 CreditTransactionsVm = _creditTransactionService.GetAllCreditTransactions().Select(Mapper.Map<CreditTransaction, CreditTransactionsVm>).ToList(),
-                DebitTransationsVm = _debitTransactionService.GetAllDebitTransactions().Select(Mapper.Map<DebitTransaction,DebitTransactionsVm>).ToList()
+                DebitTransationsVm = _debitTransactionService.GetAllDebitTransactions().Select(Mapper.Map<DebitTransaction,DebitTransactionsVm>).ToList(),
+                BillTransactionVm = _billService.GetAllBillPayments().Select(Mapper.Map<BillPayment,BillTransactionVm>).ToList()
             };
 
             return View(transactionsVm);
@@ -131,6 +137,35 @@ namespace MyBudget.Controllers
                 : "Failed to add credit transaction";
 
             return View(debitTransactionsVm);
+        }
+
+        [HttpPost]
+        public ActionResult AddNewBillTransactionPost(BillTransactionVm billPaymentVm)
+        {
+            var billPayment = new BillPayment
+            {
+                Amount = billPaymentVm.Amount,
+                TransactionDateTime = DateTime.Parse(HttpContext.Request.Form["transactionDate"]),
+                ExpenseDestinationId = int.Parse(HttpContext.Request.Form["paymentDestination"]),
+            };
+
+            _billService.AddNewBill(billPayment);
+
+            return View(billPaymentVm);
+        }
+
+        [HttpGet]
+        public ActionResult AddNewBillTransaction()
+        {
+            var paymentDestinations = _expensesService.GetAllPaymentDestinations();
+            var billTransactionVm = new BillTransactionVm
+            {
+                PaymentDestinations = paymentDestinations,
+                Amount = default(float),
+                TransactionDateTime = DateTime.Now
+            };
+
+            return View(billTransactionVm);
         }
 
     }

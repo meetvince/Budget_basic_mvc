@@ -43,5 +43,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="bills">
+      <EntityTypeMapping TypeName="BudgetModel.bill">
+        <MappingFragment StoreEntitySet="bills">
+          <ScalarProperty Name="expenseDestinationId" ColumnName="expenseDestinationId" />
+          <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

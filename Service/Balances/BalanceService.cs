@@ -56,7 +56,7 @@ namespace Service.Balances
                 var currentMonth = beginDate;
 
                 var sum = 0.0f;
-                while (currentMonth.AddMonths(1) < endDate)
+                while (currentMonth.AddMonths(1) <= endDate)
                 {
                     
                     var periodBalance = new PeriodBalance

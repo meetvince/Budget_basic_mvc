@@ -1271,3 +1271,7 @@ Source value:
 DomainModel.CreditTransaction
 ERROR2017-08-30 11:25:24 - Exception occurred while retrieving debit transactions from database
 ERROR2017-08-30 11:25:24 - LINQ to Entities does not recognize the method 'DomainModel.DebitTransaction Map[activity,DebitTransaction](Domain.Entitites.activity)' method, and this method cannot be translated into a store expression.
+ERROR2017-09-08 04:37:53 - Exception occurred while saving bill entity. Exception message :An error occurred while updating the entries. See the inner exception for details.
+ERROR2017-09-08 04:40:46 - Exception occurred while saving bill entity. Exception message :An error occurred while updating the entries. See the inner exception for details.
+ERROR2017-09-08 04:42:20 - Exception occurred while saving bill entity. Exception message :An error occurred while updating the entries. See the inner exception for details.
+ERROR2017-09-08 04:43:54 - Exception occurred while saving bill entity. Exception message :An error occurred while updating the entries. See the inner exception for details.

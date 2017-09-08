@@ -2,6 +2,7 @@
 <Schema Namespace="BudgetModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="BudgetModelStoreContainer">
     <EntitySet Name="activity" EntityType="BudgetModel.Store.activity" store:Type="Tables" />
+    <EntitySet Name="bills" EntityType="BudgetModel.Store.bills" store:Type="Tables" />
     <EntitySet Name="expenseDestination" EntityType="BudgetModel.Store.expenseDestination" store:Type="Tables" />
     <EntitySet Name="paymentSource" EntityType="BudgetModel.Store.paymentSource" store:Type="Tables" />
     <EntitySet Name="recurrence" EntityType="BudgetModel.Store.recurrence" store:Type="Tables" />
@@ -16,6 +17,15 @@
     <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="25" />
     <Property Name="recur" Type="bit" Nullable="false" />
     <Property Name="transactionSourceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bills">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="amount" Type="float" Nullable="false" />
+    <Property Name="transactionDate" Type="datetime" Nullable="false" />
+    <Property Name="expenseDestinationId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="expenseDestination">
     <Key>

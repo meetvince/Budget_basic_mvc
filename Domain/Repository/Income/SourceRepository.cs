@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Domain.Entitites;
+using Domain.Repository.Expenses;
 using DomainModel.CommonModel;
 using DomainModel.Income;
 using log4net;

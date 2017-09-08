@@ -5,6 +5,7 @@
     <EntitySet Name="paymentSources" EntityType="BudgetModel.paymentSource" />
     <EntitySet Name="recurrences" EntityType="BudgetModel.recurrence" />
     <EntitySet Name="activities" EntityType="BudgetModel.activity" />
+    <EntitySet Name="bills" EntityType="BudgetModel.bill" />
   </EntityContainer>
   <EntityType Name="expenseDestination">
     <Key>
@@ -43,5 +44,14 @@
     <Property Type="String" Name="type" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="recur" Nullable="false" />
     <Property Type="Int32" Name="transactionSourceId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Double" Name="amount" Nullable="false" />
+    <Property Type="DateTime" Name="transactionDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="expenseDestinationId" Nullable="false" />
   </EntityType>
 </Schema>

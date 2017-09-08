@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Domain.Repository;
+using Domain.Repository.Expenses;
 using Domain.Repository.Income;
 using DomainModel;
 using DomainModel.CommonModel;

@@ -60,7 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bills\IBillsRepository.cs" />
     <Compile Include="CommonModel\BalanceContainer.cs" />
+    <Compile Include="CommonModel\BillPayment.cs" />
     <Compile Include="CommonModel\CreditTransaction.cs" />
     <Compile Include="CommonModel\DebitTransaction.cs" />
     <Compile Include="CommonModel\Payment.cs" />

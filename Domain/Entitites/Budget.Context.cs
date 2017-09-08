@@ -29,5 +29,6 @@ namespace Domain.Entitites
         public DbSet<paymentSource> paymentSources { get; set; }
         public DbSet<recurrence> recurrences { get; set; }
         public DbSet<activity> activities { get; set; }
+        public DbSet<bill> bills { get; set; }
     }
 }

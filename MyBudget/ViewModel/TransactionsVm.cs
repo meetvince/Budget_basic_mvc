@@ -9,5 +9,6 @@ namespace MyBudget.ViewModel
     {
         public IList<CreditTransactionsVm> CreditTransactionsVm { get; set; }
         public IList<DebitTransactionsVm> DebitTransationsVm { get; set; }
+        public IList<BillTransactionVm> BillTransactionVm { get; set; }
     }
 }

@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bills\IBillService.cs" />
     <Compile Include="Expenses\IExpensesService.cs" />
     <Compile Include="Balances\IBalanceService.cs" />
     <Compile Include="Income\IPaymentSourceService.cs" />
@@ -76,6 +77,7 @@
       <Name>DomainModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

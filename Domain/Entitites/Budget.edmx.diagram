@@ -7,8 +7,9 @@
       <Diagram DiagramId="f2af227d777d4abca8613ac5e0e991be" Name="Diagram1">
         <EntityTypeShape EntityType="BudgetModel.expenseDestination" Width="1.5" PointX="2.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BudgetModel.paymentSource" Width="1.5" PointX="4.25" PointY="0.75" />
-        <EntityTypeShape EntityType="BudgetModel.recurrence" Width="1.5" PointX="7.375" PointY="1.875" />
-        <EntityTypeShape EntityType="BudgetModel.activity" Width="1.5" PointX="10.25" PointY="3.125" />
+        <EntityTypeShape EntityType="BudgetModel.recurrence" Width="1.5" PointX="7.25" PointY="1.375" />
+        <EntityTypeShape EntityType="BudgetModel.activity" Width="1.5" PointX="10.125" PointY="1.25" />
+        <EntityTypeShape EntityType="BudgetModel.bill" Width="1.5" PointX="12.5" PointY="2.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

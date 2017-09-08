@@ -98,6 +98,9 @@
     <Compile Include="Entitites\activity.cs">
       <DependentUpon>Budget.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entitites\bill.cs">
+      <DependentUpon>Budget.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entitites\Budget.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +131,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repository\Bills\BillsRepository.cs" />
     <Compile Include="Repository\Transactions\CreditTransactionRepository.cs" />
     <Compile Include="Repository\Transactions\DebitTransactionRepository.cs" />
     <Compile Include="Repository\Expenses\ExpensesRepository.cs" />

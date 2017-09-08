@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Domain.Entitites;
-using DomainModel;
 using DomainModel.CommonModel;
 using DomainModel.Expenses;
 using log4net;
 using log4net.Config;
 
-namespace Domain.Repository
+namespace Domain.Repository.Expenses
 {
     public class ExpensesRepository : IExpensesRepository
     {
